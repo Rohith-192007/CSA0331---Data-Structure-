@@ -1,20 +1,32 @@
 #include <stdio.h>
 
+int fib(int n)
+{
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+
 int main()
 {
-    int nums1[] = {1, 3};
-    int nums2[] = {2};
-    int m = 2, n = 1;
-    int sum = 0;
-    int i;
+    int n = 10;
+    int i, sum = 0;
 
-    for (i = 0; i < m; i++)
-        sum += nums1[i];
+    printf("Fibonacci series\n");
 
     for (i = 0; i < n; i++)
-        sum += nums2[i];
+    {
+        int f = fib(i);
+        printf("%d", f);
+        sum = sum + f;
 
-    printf("%d", sum);
+        if (i < n - 1)
+            printf(", ");
+    }
+
+    printf("\n\nSum: %d", sum);
 
     return 0;
 }
